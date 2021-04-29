@@ -5,7 +5,7 @@ import ToDoList from './ToDoList'
 import AddTask from './AddTask'
 import Alert from 'react-bootstrap/Alert'
 
-class App extends React.Component {
+class App1 extends React.Component {
 
     constructor(){
         super();
@@ -59,4 +59,4 @@ class App extends React.Component {
     }
 }
 
-export default App
+export default App1
