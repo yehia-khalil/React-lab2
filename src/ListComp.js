@@ -19,9 +19,9 @@ class ListComp extends React.Component {
                             <Col sm={4}>{this.props.todo.content}</Col>
                             <Col sm={8}>
                             <div style={{display:'flex' ,justifyContent:"flex-end"}}>
-                                <Button variant="outline-success" onClick={()=>this.props.changeState(this.props.todo.id)}>Done</Button>{' '}
+                                <Button variant="outline-success" onClick={()=>this.props.changeState(this.props.todo.content)}>Done</Button>{' '}
                                 <p style={{width:"10px"}}></p>
-                                <Button variant="outline-danger" onClick={()=>this.props.Delete(this.props.todo.id)}>Delete</Button>{' '}
+                                <Button variant="outline-danger" onClick={()=>this.props.Delete(this.props.todo.content)}>Delete</Button>{' '}
                             </div>
                             </Col>
                         </Row>  

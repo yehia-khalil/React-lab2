@@ -16,7 +16,7 @@ class ToDoList extends React.Component {
                 <Card.Header>To Do List</Card.Header>
                 <ListGroup variant="flush">
                 {this.props.todos.map((todo,i)=>{
-                    return <ListComp key={todo.id} todo={todo} changeState={this.props.changeState} Delete={this.props.Delete} />
+                    return <ListComp key={i} todo={todo} changeState={this.props.changeState} Delete={this.props.Delete} />
                 })}
                 </ListGroup>
             </Card>

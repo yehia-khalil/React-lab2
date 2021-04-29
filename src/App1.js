@@ -2,31 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ToDoList from './ToDoList'
+import AddTask from './AddTask'
+import Alert from 'react-bootstrap/Alert'
 
 class App extends React.Component {
 
     constructor(){
         super();
         this.state = {
-            todos:[{
-                id:1,
-                content:"to-do 1",
-                state:"waiting"
-            },{
-                id:2,
-                content:"to-do 2",
-                state:"waiting"
-            },{
-                id:3,
-                content:"to-do 3",
-                state:"waiting"
-            }],
+            todos:[],
+            taskText:"",
+            duplicationError:"",
         }
     }
     
-    changeState=(id)=>{
+    changeState=(content)=>{
         let newTodos = this.state.todos.map((item,i)=>{
-			if(item.id === id){
+			if(item.content === content){
                 item.state = "DONE";
                 return item;
             }
@@ -36,16 +28,32 @@ class App extends React.Component {
         this.setState({todos:newTodos})
     }
 
-    Delete=(id)=>{
-        let newTodos = this.state.todos.filter(item=>item.id != id)
-        console.log(newTodos);
+    Delete=(content)=>{
+        let newTodos = this.state.todos.filter(item=>item.content != content)
+        // console.log(newTodos);
         this.setState({todos:newTodos})
     }
+
+    
+    addTask=(task)=>{
+        if(this.state.todos.find(element => element.content === task.content)){
+            this.setState({duplicationError:"Task Alreadt exists"})
+        }else{
+        let newtodolist = this.state.todos;
+        newtodolist.push(task);
+        this.setState({todos:newtodolist})
+        this.setState({duplicationError:""})
+        }
+        console.log(this.state.todos);
+    }
+
 
     render(){
         return(
         <div>
             <ToDoList todos={this.state.todos} changeState={this.changeState} Delete={this.Delete} />
+            <AddTask addTask={this.addTask}/>
+            {this.state.duplicationError ? <Alert variant="warning">{this.state.duplicationError}</Alert>:<p></p>}
         </div>
         )
     }
