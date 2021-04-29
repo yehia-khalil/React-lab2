@@ -16,8 +16,8 @@ class ListComp extends React.Component {
                 <ListGroup.Item style={this.props.todo.state==="DONE" ? {backgroundColor:"yellow"}:{}}>
                     <Container >
                         <Row>
-                            <Col sm={4}>{this.props.todo.content}</Col>
-                            <Col sm={8}>
+                            <Col sm={9}><li>{this.props.todo.content}</li></Col>
+                            <Col sm={3}>
                             <div style={{display:'flex' ,justifyContent:"flex-end"}}>
                                 <Button variant="outline-success" onClick={()=>this.props.changeState(this.props.todo.content)}>Done</Button>{' '}
                                 <p style={{width:"10px"}}></p>

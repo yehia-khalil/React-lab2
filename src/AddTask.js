@@ -20,7 +20,7 @@ class AddTask extends React.Component {
 
     render(){
         return(
-            <div className="input-group mb-3" style={{width:"50%"}}>
+            <div className="input-group mb-3" style={{width:"70%"}}>
                 <input type="text" className="form-control" placeholder="ADD NEW TASK HERE" onChange={(e)=>this.setState({content:e.target.value})} value={this.state.content}></input>
                 <div className="input-group-append">
                     <button className="btn btn-outline-success" type="button" id="button-addon2" onClick={()=>this.props.addTask(this.state)}>ADD</button>

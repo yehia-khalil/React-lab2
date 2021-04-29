@@ -40,6 +40,7 @@ class App1 extends React.Component {
             this.setState({duplicationError:"Task Alreadt exists"})
         }else{
         let newtodolist = this.state.todos;
+        task.state="waiting";
         newtodolist.push(task);
         this.setState({todos:newtodolist})
         this.setState({duplicationError:""})
@@ -50,7 +51,7 @@ class App1 extends React.Component {
 
     render(){
         return(
-        <div>
+        <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
             <ToDoList todos={this.state.todos} changeState={this.changeState} Delete={this.Delete} />
             <AddTask addTask={this.addTask}/>
             {this.state.duplicationError ? <Alert variant="warning">{this.state.duplicationError}</Alert>:<p></p>}

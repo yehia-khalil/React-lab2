@@ -10,9 +10,9 @@ class ToDoList extends React.Component {
 
     render(){
         return(
-            <div>
+            <div style={{ width: "70%"}}>
 
-            <Card style={{ width: "50%" }}>
+            <Card >
                 <Card.Header>To Do List</Card.Header>
                 <ListGroup variant="flush">
                 {this.props.todos.map((todo,i)=>{
