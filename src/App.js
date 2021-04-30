@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Counter from './Counter';
+import JsonContent from './JsonContent';
+
+class App extends React.Component {
+
+  data = `{"id":"1",
+  "jobTitleName":"Developer",
+  "firstName":"Ahmed",
+  "lastName":"Ali",
+  "preferredFullName":"Ahmed Ali",
+  "employeeCode":"E1",
+  "region":"CA",
+  "phoneNumber":"408-1234567",
+  "emailAddress":"ahmed.ali@gmail.com"}`
+
+  constructor(){
+    super();
+    this.state = {
+      data:this.data
+    }
+  }
+
+  render(){
+    return(
+      <div>
+      <Counter />
+      <JsonContent dataa={this.state.data}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
